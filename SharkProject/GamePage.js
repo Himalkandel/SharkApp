@@ -1,13 +1,21 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Make sure Ionicons is imported correctly
+import { Ionicons } from '@expo/vector-icons';
 
 const GamePage = ({ navigation }) => {
+  const finalScore = 123; // Placeholder score value
+
   const handlePausePress = () => {
     // Pause button logic
     console.log('Pause button pressed');
-    // Implement your logic here, for example, navigating to a pause screen or toggling the game state
   };
+
+  const handleEndGame = () => {
+    // Navigate to the EndPage with the final score when the game ends
+    navigation.navigate('End', { score: finalScore });
+  };
+
+  // Add logic to call handleEndGame() when the game is over
 
   return (
     <View style={styles.container}>
@@ -16,6 +24,10 @@ const GamePage = ({ navigation }) => {
       <TouchableOpacity style={styles.pauseButton} onPress={handlePausePress}>
         <Ionicons name="pause" size={32} color="black" />
       </TouchableOpacity>
+      {/* Temporary button to simulate game end */}
+      <TouchableOpacity onPress={handleEndGame}>
+        <Text>End Game</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -23,7 +35,7 @@ const GamePage = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 50, 
     paddingBottom: 50, 
@@ -31,20 +43,21 @@ const styles = StyleSheet.create({
   score: {
     fontSize: 24,
     position: 'absolute',
-    top: 10, // Adjust the position as needed
+    top: 10,
   },
   gameArea: {
     borderWidth: 1,
     borderColor: 'black',
-    width: '80%', // Adjust the size as needed
-    height: '60%', // Adjust the size as needed
-    marginTop: '20%', // This can center it on the screen depending on the device
-    marginBottom: '20%', // This can center it on the screen depending on the device
+    width: '80%',
+    height: '60%',
+    marginTop: '20%',
+    marginBottom: '20%',
   },
   pauseButton: {
     position: 'absolute',
-    bottom: 10, // Adjust the position as needed
+    bottom: 10,
   },
+  // ... any additional styles you have
 });
 
 export default GamePage;
