@@ -39,18 +39,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 54,
     marginBottom: 20,
+    fontFamily: 'Roboto_400Regular',
   },
   playButton: {
-    // Define styles for your play button if needed
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingBottom: 20,
   },
-  // ... other styles
 });
 
 export default StartPage;
