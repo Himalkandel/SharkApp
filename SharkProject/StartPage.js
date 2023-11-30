@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const StartPage = () => {
+const StartPage = ({ navigation }) => {
   const handlePlayPress = () => {
-    // Insert your play button logic here
-    console.log('Play button pressed');
+    // Navigate to GamePage
+    navigation.navigate('Game');
   };
 
   return (
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 54,
     marginBottom: 20,
-    fontFamily: 'Roboto_400Regular',
   },
   playButton: {
   },
